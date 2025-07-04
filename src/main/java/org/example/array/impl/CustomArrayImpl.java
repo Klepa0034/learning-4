@@ -1,9 +1,11 @@
 package org.example.array.impl;
 
+import org.example.annatation.Component;
 import org.example.array.CustomArray;
 import org.example.entity.Employee;
-
+@Component
 public class CustomArrayImpl<T> implements CustomArray<T> {
+
     private Object[] array;
     private int currentSize;
 
@@ -31,6 +33,11 @@ public class CustomArrayImpl<T> implements CustomArray<T> {
             array[i+1]=null;
         }
     }
+    public void updateElement(int index, T newValue) {
+        if (index < 0 || index >= currentSize) {
+        }
+        array[index] = newValue;
+    }
 
     @Override
     public void deleteElement(int index) {
@@ -38,6 +45,18 @@ public class CustomArrayImpl<T> implements CustomArray<T> {
         array[index]=null;
         reBuild(index);
         currentSize--;
+    }
+    public void insertElement(int index, T value) {
+        if (index < 0 || index > currentSize) {
+        }
+        if (currentSize == array.length) {
+            resize();
+        }
+        for (int i = currentSize; i > index; i--) {
+            array[i] = array[i - 1];
+        }
+        array[index] = value;
+        currentSize++;
     }
 
     @Override

@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 @Component
 public class MapperImpl<T> implements Mapper<T> {
+    private int index;
 
     @Override
     public CustomArray<T> resultToListMapper(ResultSet resultSet, Class<T> tClass) throws SQLException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
@@ -33,7 +34,10 @@ public class MapperImpl<T> implements Mapper<T> {
                 }
             }
             customArray.addElement(t);
+            customArray.deleteElement(index);
         }
+
+
         return customArray;
     }
 }

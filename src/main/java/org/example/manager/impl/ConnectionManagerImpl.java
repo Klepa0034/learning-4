@@ -1,15 +1,16 @@
-package org.example.connection.impl;
+package org.example.manager.impl;
 
-import org.example.connection.ConnectionManager;
+import org.example.annatation.Component;
+import org.example.manager.ConnectionManager;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+@Component
 public class ConnectionManagerImpl implements ConnectionManager {
-    private String name;
-    private String url;
-    private String password;
+    private String name="name";
+    private String url="jdbc:postgresql://localhost:5432/name";
+    private String password="password";
     @Override
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url,name,password);

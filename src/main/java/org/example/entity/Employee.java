@@ -1,8 +1,11 @@
 package org.example.entity;
 
+import org.example.annatation.Component;
+
+@Component
 public class Employee {
     private String name;
-    private Long age;
+    private Long salary;
     private Integer id;
 
 
@@ -12,11 +15,15 @@ public class Employee {
 
 
 
-    public void setAge(Long age) {
-        this.age = age;
+    public void setSalary(Long salary) {
+        this.salary = salary;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
+    public String toString() {
+        return "Имя %d,%d %s ".formatted(id,salary,name);
+    }
+
 }
