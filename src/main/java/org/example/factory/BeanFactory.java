@@ -1,4 +1,4 @@
-package org.example.bean;
+package org.example.factory;
 
 import java.lang.reflect.InvocationTargetException;
 

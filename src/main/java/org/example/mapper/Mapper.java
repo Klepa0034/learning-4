@@ -7,5 +7,5 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface Mapper<T> {
-    public CustomArray<T> resultToListMapper(ResultSet resultSet, Class<T> tClass) throws SQLException;
+    public CustomArray<T> resultToListMapper(ResultSet resultSet, Class<T> tClass) throws SQLException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException;
 }
